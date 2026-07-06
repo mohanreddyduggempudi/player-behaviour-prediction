@@ -1,0 +1,20 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h3>Prediction Demo</h3>
+<form method="post" class="row g-3">
+  <div class="col-md-2"><label>Session Length (mins)</label><input name="session_length" class="form-control" value="20"></div>
+  <div class="col-md-2"><label>Levels Completed</label><input name="levels_completed" class="form-control" value="3"></div>
+  <div class="col-md-2"><label>In-game currency</label><input name="in_game_currency" class="form-control" value="50"></div>
+  <div class="col-md-2"><label>Past purchases</label><input name="past_purchases" class="form-control" value="0"></div>
+  <div class="col-md-2"><label>Engagement score</label><input name="engagement_score" class="form-control" value="0.6"></div>
+  <div class="col-md-12"><button class="btn btn-primary mt-2">Predict</button></div>
+</form>
+
+{% if result %}
+  <div class="alert alert-info mt-3">
+    <strong>Prediction:</strong> Will purchase? {{ result.will_purchase }} <br>
+    <strong>Probability:</strong> {{ result.probability }}
+  </div>
+{% endif %}
+{% endblock %}

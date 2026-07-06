@@ -1,0 +1,8 @@
+flask
+flask-bcrypt
+python-dotenv
+pandas
+numpy
+faker
+scikit-learn
+joblib

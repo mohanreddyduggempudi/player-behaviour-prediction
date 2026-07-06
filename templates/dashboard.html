@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Players</h5>
+      <p class="display-6">{{ stats.players }}</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Predictions</h5>
+      <p class="display-6">{{ stats.predictions }}</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Quick Predict</h5>
+      <a class="btn btn-sm btn-primary" href="{{ url_for('demo') }}">Try Demo</a>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4">
+  <canvas id="chartDemo" height="100"></canvas>
+</div>
+
+<script>
+// Simple demo chart (static sample)
+const ctx = document.getElementById('chartDemo').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['0-5 min','5-15 min','15-30 min','30+ min'],
+    datasets: [{ label: 'Avg purchase prob', data: [0.12,0.3,0.5,0.8] }]
+  }
+});
+</script>
+{% endblock %}
